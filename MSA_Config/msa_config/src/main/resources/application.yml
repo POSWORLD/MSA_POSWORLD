@@ -7,4 +7,4 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/hannahf97/configrepo.git
+          uri: https://github.com/POSWORLD/MSA_Config.git
