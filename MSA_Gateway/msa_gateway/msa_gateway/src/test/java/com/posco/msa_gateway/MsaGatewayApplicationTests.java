@@ -1,4 +1,4 @@
-package com.example.msa_gateway;
+package com.posco.msa_gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
