@@ -1,6 +1,6 @@
 # MSA_POSWORLD
 
-진행 순서
+## 진행 순서
 1. issue 등록 (세부내용작성 템플릿대로)
 2. 브랜치로 새로운 branch 하나 판다 (kjh #15(이슈번호) 로 해도 되고) 
 3. issue 에 적어둔 내역 하나씩 실행하기 commit 명은 #(이슈번호) + 만든 기능!
@@ -12,7 +12,7 @@
 6. merge는 다른 사람들에게 꼭 알리고 스스로 merge 한다!
 
 
-리뷰 진행 방법 
+## 리뷰 진행 방법 
 1. 다른사람들이 올린 pr 에 들어간다
 ![image](https://user-images.githubusercontent.com/46432606/177151748-a3fd5ecf-1d61-4040-9295-b8c5ad7f7e22.png)
 
