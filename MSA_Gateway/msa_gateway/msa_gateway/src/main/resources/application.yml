@@ -22,3 +22,8 @@ spring:
               - DELETE
               - PUT
               - OPTION
+      routes:
+        - id: board-service
+          uri: lb://BOARD-SERVICE
+          predicates:
+            - Path=/board/**
