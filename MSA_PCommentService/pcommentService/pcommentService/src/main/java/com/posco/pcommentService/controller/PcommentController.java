@@ -5,6 +5,7 @@ import com.posco.pcommentService.service.PcommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -13,14 +14,18 @@ public class PcommentController {
 
     @Autowired
     PcommentService pcommentService;
+
+    @Autowired
+    PcommentDto pcommentDto;
+
     @GetMapping("/")
     public Boolean test(){
         return true;
     }
 
     @GetMapping("/{pid}")
-    public List<PcommentDto> getPcommentsByPid(PcommentDto pcommentDto){
-        pcommentDto.setPid(pcommentDto.getPid());
+    public List<PcommentDto> getPcommentsByPid(@PathVariable String pid){
+        pcommentDto.setPid(Integer.valueOf(pid));
         return pcommentService.getCommentByPid(pcommentDto);
 
     }
@@ -39,6 +44,7 @@ public class PcommentController {
     @PutMapping("/")
     public PcommentDto updatePcomment(@RequestBody PcommentDto pcommentDto){
         try {
+            pcommentDto.setPid(pcommentDto.getId());
             pcommentDto.setUserid(pcommentDto.getUserid());
             pcommentDto.setContent(pcommentDto.getContent());
             pcommentDto.setPid(pcommentDto.getPid());
@@ -50,11 +56,11 @@ public class PcommentController {
     }
 
 
-
+    @Transactional
     @DeleteMapping("/{id}/{userid}")
-    public Integer deletePcommentById(PcommentDto pcommentDto){
-        pcommentDto.setId(pcommentDto.getId());
-        pcommentDto.setUserid(pcommentDto.getUserid());
+    public Integer deletePcommentById(@PathVariable String id, @PathVariable String userid){
+        pcommentDto.setId(Integer.valueOf(id));
+        pcommentDto.setUserid(Integer.valueOf(userid));
         return pcommentService.delteById(pcommentDto);
     }
 }

@@ -18,7 +18,7 @@ public class PcommentService {
     }
 
     public Integer delteById(PcommentDto pcommentDto){
-        return pcommentRepository.deletePcommentDtoById(pcommentDto);
+        return pcommentRepository.deletePcommentDtoByIdAndUserid(pcommentDto.getId(), pcommentDto.getUserid());
     }
 
     public PcommentDto insertPcomment(PcommentDto pcommentDto){

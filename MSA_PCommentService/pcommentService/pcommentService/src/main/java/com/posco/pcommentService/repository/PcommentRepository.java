@@ -8,7 +8,7 @@ import java.util.List;
 public interface PcommentRepository extends JpaRepository<PcommentDto, Integer> {
     List<PcommentDto> getPcommentDtoByPid(Integer pid);
 
-    Integer deletePcommentDtoById (PcommentDto pcommentDto);
+    Integer deletePcommentDtoByIdAndUserid (Integer id, Integer userid);
 
 
 }
