@@ -8,10 +8,10 @@
 		<version>2.7.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.posworld.userService</groupId>
-	<artifactId>MSA_UserService</artifactId>
+	<groupId>com.posworld</groupId>
+	<artifactId>userService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>MSA_UserService</name>
+	<name>userService</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>

@@ -1,10 +1,10 @@
-package com.posworld.userService.MSA_UserService;
+package com.posworld.userService;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MsaUserServiceApplicationTests {
+class UserServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
