@@ -31,14 +31,14 @@ spring:
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Path=user/**
+            - Path=/user/**
 
         - id: photo-service
           uri: lb://PHOTO-SERVICE
           predicates:
-            - Path=photo/**
+            - Path=/photo/**
 
         - id: pcomment-service
           uri: lb://PCOMMENT-SERVICE
           predicates:
-            - Path=pComment/**
+            - Path=/pComment/**
