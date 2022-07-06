@@ -19,6 +19,11 @@ public class PhotoSelectController {
     @Autowired
     PhotoDto photoDto;
 
+    @GetMapping("/")
+    public Boolean test(){
+        return true;
+    }
+
     @GetMapping("/{userid}")
     public List<PhotoDto> getPhotoList(@PathVariable String userid){
         photoDto.setUserid(Integer.valueOf(userid));
