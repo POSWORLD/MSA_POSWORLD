@@ -23,14 +23,14 @@ public class BoardController {
     @Autowired
     BoardDto boardDto;
 
-//    @GetMapping("/{homeid}")
-//    public List<SelectJoinDto> getBoards(@PathVariable Integer homeid){
-//        boardDto.setHomeid(Integer.valueOf(homeid))  ;
-//        return boardService.getBoards(homeid);
-//    }
+    @GetMapping("/{homeid}")
+   public List<SelectJoinDto> getByHomeid(@PathVariable Integer homeid){
+      boardDto.setHomeid(Integer.valueOf(homeid))  ;
+       return boardService.getByHomeid(homeid);
+   }
 
     @PostMapping("/{homeid}/{userid}")
-    public BoardDto insertBoard(@RequestBody BoardDto boardDto,@PathVariable String userid, @PathVariable String homeid){
+    public SelectJoinDto insertBoard(@RequestBody BoardDto boardDto,@PathVariable String userid, @PathVariable String homeid){
         try{
             boardDto.setContent(boardDto.getContent());
             boardDto.setFriendid(Integer.valueOf(userid));
@@ -40,6 +40,15 @@ public class BoardController {
             System.out.println("[ERROR] " + e.getMessage());
         }
         return boardService.insertBoard(boardDto);
+    }
+    @PutMapping("/{num}")
+    public SelectJoinDto updateBoard(@PathVariable Integer num, @RequestBody SelectJoinDto selectJoinDto) {
+        return boardService.updateBoard(num, selectJoinDto);
+    }
+    @DeleteMapping("/{num}")
+    public ResponseEntity<Map<String,Boolean>> deleteBoard(@PathVariable Integer num) {
+        System.out.println(num);
+        return boardService.deleteBoard(num );
     }
 //    @PostMapping("/")
 //    public BoardDto insertBoard(@RequestBody BoardDto boardDto){
@@ -68,15 +77,6 @@ public class BoardController {
        // return boardService.updateBoard(num, boardDto);
   //  }
 
- @PutMapping("/{num}")
-    public BoardDto updateBoard(@PathVariable Integer num, @RequestBody BoardDto boardDto) {
-    return boardService.updateBoard(num, boardDto);
-    }
-    @DeleteMapping("/{num}")
-    public ResponseEntity<Map<String,Boolean>> deleteBoard(@PathVariable Integer num) {
-        System.out.println(num);
-        return boardService.deleteBoard(num );
-    }
 
 
 
