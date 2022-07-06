@@ -2,7 +2,7 @@ server:
   port: 9002
 spring:
   application:
-    name: home-service
+    name: HOME-SERVICE
   jpa:
     hibernate:
       ddl-auto: none
