@@ -27,3 +27,23 @@ spring:
           uri: lb://BOARD-SERVICE
           predicates:
             - Path=/board/**
+
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/**
+
+        - id: photo-service
+          uri: lb://PHOTO-SERVICE
+          predicates:
+            - Path=/photo/**
+
+        - id: pcomment-service
+          uri: lb://PCOMMENT-SERVICE
+          predicates:
+            - Path=/pComment/**
+
+        - id: home-service
+          uri: lb://HOME-SERVICE
+          predicates:
+            - Path=/home/**
