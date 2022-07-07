@@ -20,6 +20,7 @@ public class PhotoController {
             photoDto.setTitle(photoDto.getTitle());
             photoDto.setImg(photoDto.getImg());
             photoDto.setContent(photoDto.getContent());
+            System.out.println(photoDto);
         } catch (Exception e) {
             System.out.println("[ERROR] " + e.getMessage());
         }
