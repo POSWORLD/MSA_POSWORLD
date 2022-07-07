@@ -29,7 +29,7 @@ public class MemberService {
     public UserResponseDto changeMemberNickname(String userId, String name, String prophoto) {
         Member member = memberRepository.findByUserid(userId).orElseThrow(() -> new RuntimeException("로그인 유저 정보가 없습니다"));
         member.setName(name);
-        member.setProphoto("/img/"+prophoto);
+        member.setProphoto(prophoto);
         return UserResponseDto.of(memberRepository.save(member));
     }
 
