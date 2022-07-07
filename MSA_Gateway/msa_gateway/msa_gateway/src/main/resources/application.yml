@@ -36,8 +36,12 @@ spring:
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/member/**
             - Path=/auth/**
+
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+             - Path=/member/**
 
         - id: photo-service
           uri: lb://PHOTO-SERVICE
@@ -54,3 +58,8 @@ spring:
           uri: lb://HOME-SERVICE
           predicates:
             - Path=/home/**
+
+        - id: photo-select-service
+          uri: lb://PHOTO-SELECT-SERVICE
+          predicates:
+            - Path=/photo-select/**
