@@ -13,15 +13,20 @@ spring:
     name: gateway-service
   cloud:
     gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
       globalcors:
         cors-configurations:
           '[/**]':
-            allowed-methods:
+            allowedMethods:
               - GET
               - POST
               - DELETE
               - PUT
               - OPTION
+            allowedOrigins: "http://localhost:3001"
+            allow-credentials: true
+            allowedHeaders: "*"
       routes:
         - id: board-service
           uri: lb://BOARD-SERVICE
@@ -31,7 +36,8 @@ spring:
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/user/**
+            - Path=/member/**
+            - Path=/auth/**
 
         - id: photo-service
           uri: lb://PHOTO-SERVICE
@@ -42,6 +48,7 @@ spring:
           uri: lb://PCOMMENT-SERVICE
           predicates:
             - Path=/pComment/**
+
 
         - id: home-service
           uri: lb://HOME-SERVICE
