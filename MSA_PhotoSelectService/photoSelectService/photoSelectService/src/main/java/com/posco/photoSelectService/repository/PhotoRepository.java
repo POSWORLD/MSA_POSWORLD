@@ -1,6 +1,6 @@
-package com.posco.photoselectservice.repository;
+package com.posco.photoSelectService.repository;
 
-import com.posco.photoselectservice.model.PhotoDto;
+import com.posco.photoSelectService.model.PhotoDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,5 +11,5 @@ public interface PhotoRepository extends JpaRepository<PhotoDto, Integer> {
 
     List<PhotoDto> findAllById(Integer userid);
 
-    PhotoDto findBypid(Integer id);
+    PhotoDto findByid (Integer id);
 }

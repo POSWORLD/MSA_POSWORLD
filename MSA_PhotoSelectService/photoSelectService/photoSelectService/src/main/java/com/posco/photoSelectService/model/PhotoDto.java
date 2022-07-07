@@ -1,4 +1,4 @@
-package com.posco.photoselectservice.model;
+package com.posco.photoSelectService.model;
 
 import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;

@@ -1,7 +1,8 @@
-package com.posco.photoselectservice.service;
+package com.posco.photoSelectService.service;
 
-import com.posco.photoselectservice.model.PhotoDto;
-import com.posco.photoselectservice.repository.PhotoRepository;
+
+import com.posco.photoSelectService.model.PhotoDto;
+import com.posco.photoSelectService.repository.PhotoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +18,7 @@ public class PhotoService {
     }
 
     public PhotoDto getPhotoById(PhotoDto photoDto){
-        return photoRepository.findBypid(photoDto.getId());
+        return photoRepository.findByid(photoDto.getId());
     }
-
-
 
 }

@@ -1,7 +1,7 @@
-package com.posco.photoselectservice.controller;
+package com.posco.photoSelectService.controller;
 
-import com.posco.photoselectservice.model.PhotoDto;
-import com.posco.photoselectservice.service.PhotoService;
+import com.posco.photoSelectService.model.PhotoDto;
+import com.posco.photoSelectService.service.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("photo")
+@RequestMapping("photo-select")
 public class PhotoSelectController {
     @Autowired
     PhotoService photoService;
