@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PhotoService {
@@ -14,11 +15,11 @@ public class PhotoService {
     PhotoRepository photoRepository;
 
     public List<PhotoDto> getPhotoListByhomeId(PhotoDto photoDto){
-        return photoRepository.findAllById(photoDto.getUserid());
+        return photoRepository.findAllByUserid(photoDto.getUserid());
     }
 
-    public PhotoDto getPhotoById(PhotoDto photoDto){
-        return photoRepository.findByid(photoDto.getId());
+    public Optional<PhotoDto> getPhotoById(PhotoDto photoDto){
+        return photoRepository.findById(photoDto.getId());
     }
 
 }

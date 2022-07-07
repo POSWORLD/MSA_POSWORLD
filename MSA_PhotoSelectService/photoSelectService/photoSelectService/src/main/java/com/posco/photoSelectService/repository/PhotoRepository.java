@@ -5,11 +5,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PhotoRepository extends JpaRepository<PhotoDto, Integer> {
 
-    List<PhotoDto> findAllById(Integer userid);
+    List<PhotoDto> findAllByUserid(Integer userid);
 
-    PhotoDto findByid (Integer id);
+    Optional<PhotoDto> findById (Integer id);
 }
