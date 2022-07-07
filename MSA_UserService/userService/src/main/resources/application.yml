@@ -24,7 +24,7 @@ spring:
         show_sql: true
 
   datasource:
-    url: jdbc:mysql://localhost:3306/posworld?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/user?serverTimezone=UTC&characterEncoding=UTF-8
     username: root
     password: 1234
     mvc:
@@ -55,3 +55,5 @@ token:
 
 gateway:
   ip: 127.0.0.1
+
+file: C:\Users\user\posworld\MSA_POSWORLD\MSA_POSWORLD\MSA_UserService\userService\src\main\resources\static

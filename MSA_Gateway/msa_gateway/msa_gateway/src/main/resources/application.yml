@@ -18,7 +18,7 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowed-methods:
+            allowedMethods:
               - GET
               - POST
               - DELETE
@@ -27,7 +27,10 @@ spring:
             allowedOrigins: "http://localhost:3001"
             allow-credentials: true
             allowedHeaders: "*"
+<<<<<<< HEAD
 
+=======
+>>>>>>> 32ff53826fa7821341a2ab626a0df3525fb96a47
       routes:
         - id: board-service
           uri: lb://BOARD-SERVICE
@@ -37,7 +40,8 @@ spring:
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
-            - Path=/user/**
+            - Path=/member/**
+            - Path=/auth/**
 
         - id: photo-service
           uri: lb://PHOTO-SERVICE
@@ -48,6 +52,7 @@ spring:
           uri: lb://PCOMMENT-SERVICE
           predicates:
             - Path=/pComment/**
+
 
         - id: home-service
           uri: lb://HOME-SERVICE

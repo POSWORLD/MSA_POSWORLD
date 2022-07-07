@@ -10,10 +10,16 @@ spring:
     url: jdbc:mysql://localhost:3306/photo?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul
     username: root
     password: 1234
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
 
-#eureka:
-#  client:
-#    register-with-eureka: true
-#    fetch-registry: true
-#    service-url:
-#      defaultZone: http://127.0.0.1:8761/eureka
+file: C:\Users\hjuhe\OneDrive\Documents\GitHub\MSA_POSWORLD\MSA_PhotoService\photoService\src\main\resources\static
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka

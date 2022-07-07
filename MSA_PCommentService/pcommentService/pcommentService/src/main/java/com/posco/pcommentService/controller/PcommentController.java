@@ -1,6 +1,7 @@
 package com.posco.pcommentService.controller;
 
 import com.posco.pcommentService.model.PcommentDto;
+import com.posco.pcommentService.model.PcommentUserDto;
 import com.posco.pcommentService.service.PcommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,13 +25,13 @@ public class PcommentController {
     }
 
     @GetMapping("/{pid}")
-    public List<PcommentDto> getPcommentsByPid(@PathVariable String pid){
+    public List<PcommentUserDto> getPcommentsByPid(@PathVariable String pid){
         pcommentDto.setPid(Integer.valueOf(pid));
         return pcommentService.getCommentByPid(pcommentDto);
 
     }
     @PostMapping("/")
-    public PcommentDto insertPcomment(@RequestBody PcommentDto pcommentDto){
+    public PcommentUserDto insertPcomment(@RequestBody PcommentDto pcommentDto){
         try {
             pcommentDto.setUserid(pcommentDto.getUserid());
             pcommentDto.setContent(pcommentDto.getContent());

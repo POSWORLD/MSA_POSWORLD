@@ -14,21 +14,16 @@ public class PhotoController {
     PhotoService photoService;
 
     @PostMapping("/{userid}")
-    public ResponseEntity<?> postPhoto(@RequestBody PhotoDto photoDto, @PathVariable String userid) {
-        PhotoDto result = null;
+    public PhotoDto postPhoto(@RequestBody PhotoDto photoDto, @PathVariable String userid) {
         try {
-            PhotoDto dto = new PhotoDto();
-            dto.setUserid(Integer.valueOf(userid));
-            dto.setTitle(photoDto.getTitle());
-            dto.setImg(photoDto.getImg());
-            dto.setContent(photoDto.getContent());
-
-            result = photoService.postPhoto(dto);
+            photoDto.setUserid(Integer.valueOf(userid));
+            photoDto.setTitle(photoDto.getTitle());
+            photoDto.setImg(photoDto.getImg());
+            photoDto.setContent(photoDto.getContent());
         } catch (Exception e) {
             System.out.println("[ERROR] " + e.getMessage());
         }
-        HttpStatus httpStatus = (result != null )? HttpStatus.CREATED : HttpStatus.BAD_REQUEST;
-        return new ResponseEntity<>(httpStatus);
+            return photoService.postPhoto(photoDto);
     }
 
     @DeleteMapping("/{id}/{userid}")
