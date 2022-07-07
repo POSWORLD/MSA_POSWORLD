@@ -4,13 +4,7 @@ spring:
   application:
     name: image-service
 
-  datasource:
-    url: jdbc:mysql://localhost:3306/user?serverTimezone=UTC&characterEncoding=UTF-8
-    username: root
-    password: 1234
-    mvc:
-      pathmatch:
-        matching-strategy: ant_path_matcher
+
   servlet:
     multipart:
       max-file-size: 100MB
@@ -21,4 +15,4 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
-file: E:\MSA_POSWORLD\MSA_UploadService\uploadService\src\main\resources\static
+file: C:\Users\klove\Documents\MSA_POSWORLD\MSA_UploadService\uploadService\src\main\resources\static
