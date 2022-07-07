@@ -58,3 +58,8 @@ spring:
           uri: lb://HOME-SERVICE
           predicates:
             - Path=/home/**
+
+        - id: photo-select-service
+          uri: lb://PHOTO-SELECT-SERVICE
+          predicates:
+            - Path=/photo-select/**
