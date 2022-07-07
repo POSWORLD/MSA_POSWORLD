@@ -42,19 +42,6 @@ public class PcommentController {
         }
         return pcommentService.insertPcomment(pcommentDto);
     }
-    @PutMapping("/")
-    public PcommentDto updatePcomment(@RequestBody PcommentDto pcommentDto){
-        try {
-            pcommentDto.setPid(pcommentDto.getId());
-            pcommentDto.setUserid(pcommentDto.getUserid());
-            pcommentDto.setContent(pcommentDto.getContent());
-            pcommentDto.setPid(pcommentDto.getPid());
-        }
-        catch (Exception e){
-            System.out.println("[ERROR] " + e.getMessage());
-        }
-        return pcommentService.updatePcomment(pcommentDto);
-    }
 
 
     @Transactional
