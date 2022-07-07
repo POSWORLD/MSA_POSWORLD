@@ -20,6 +20,8 @@ public class UploadController {
     @PostMapping("/upload")
     public ResponseEntity saveImg(@RequestParam MultipartFile file) throws IOException {
         if(!file.isEmpty()){
+            String downloadPath = filePath + "/img/" + file.getOriginalFilename();
+            file.transferTo(new File(downloadPath));
             return ResponseEntity.status(HttpStatus.OK).body("/img/"+file.getOriginalFilename());
         }
         return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body("file is empty");
