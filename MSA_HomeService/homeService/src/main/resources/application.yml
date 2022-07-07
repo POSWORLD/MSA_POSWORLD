@@ -2,7 +2,22 @@ server:
   port: 9002
 spring:
   application:
-    name: home-service
+    name: HOME-SERVICE
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+
+    datasource:
+      url: jdbc:mysql://localhost:3306/home?serverTimezone=UTC&characterEncoding=UTF-8
+      username: root
+      password: 1234
+    servlet:
+      multipart:
+        max-file-size: 100MB
+        max-request-size: 100MB
 
 eureka:
   client:
@@ -11,4 +26,5 @@ eureka:
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
 
+file: E:\MSA_POSWORLD\MSA_HomeService\homeService\src\main\resources\static
 

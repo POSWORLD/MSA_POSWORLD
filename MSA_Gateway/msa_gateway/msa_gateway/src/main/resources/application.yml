@@ -18,13 +18,13 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: "http://localhost:3001"
             allowedMethods:
               - GET
               - POST
               - DELETE
               - PUT
               - OPTION
+            allowedOrigins: "http://localhost:3001"
             allow-credentials: true
             allowedHeaders: "*"
       routes:
@@ -33,44 +33,24 @@ spring:
           predicates:
             - Path=/board/**
 
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/member/**
+            - Path=/auth/**
+
+        - id: photo-service
+          uri: lb://PHOTO-SERVICE
+          predicates:
+            - Path=/photo/**
+
+        - id: pcomment-service
+          uri: lb://PCOMMENT-SERVICE
+          predicates:
+            - Path=/pComment/**
+
+
         - id: home-service
           uri: lb://HOME-SERVICE
           predicates:
             - Path=/home/**
-
-        - id: user-service
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/user/**
-
-        - id: user-service
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/member/me
-
-        - id: user-service
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/auth/signup
-
-        - id: user-service
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/auth/checkId
-
-        - id: user-service
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/auth/login
-
-        - id: user-service
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/member/upload
-
-        - id: user-service
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/member/name
-
-
