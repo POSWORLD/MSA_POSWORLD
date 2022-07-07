@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("photo-select")
@@ -31,7 +32,7 @@ public class PhotoSelectController {
     }
 
     @GetMapping("/detail/{id}")
-    public PhotoDto getPhotoListById(@PathVariable String id){
+    public Optional<PhotoDto> getPhotoListById(@PathVariable String id){
         photoDto.setId(Integer.valueOf(id));
         return photoService.getPhotoById(photoDto);
     }
