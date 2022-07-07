@@ -55,3 +55,5 @@ token:
 
 gateway:
   ip: 127.0.0.1
+
+file: C:\Users\user\posworld\MSA_POSWORLD\MSA_POSWORLD\MSA_UserService\userService\src\main\resources\static
