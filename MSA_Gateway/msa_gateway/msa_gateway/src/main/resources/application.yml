@@ -13,6 +13,8 @@ spring:
     name: gateway-service
   cloud:
     gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
       globalcors:
         cors-configurations:
           '[/**]':
@@ -22,6 +24,10 @@ spring:
               - DELETE
               - PUT
               - OPTION
+            allowedOrigins: "http://localhost:3001"
+            allow-credentials: true
+            allowedHeaders: "*"
+
       routes:
         - id: board-service
           uri: lb://BOARD-SERVICE
