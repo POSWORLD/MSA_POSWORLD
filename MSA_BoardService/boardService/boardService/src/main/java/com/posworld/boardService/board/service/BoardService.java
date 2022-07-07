@@ -71,7 +71,7 @@ public class BoardService {
         selectJoinDto.setHomeid(boardDto.getHomeid());
 
         Map<String, Integer> urlVariables = new HashMap<>();
-        urlVariables.put("homeid", boardDto.getHomeid());
+        urlVariables.put("userid", boardDto.getFriendid());
 
         ServletRequestAttributes requestAttributes =
                 (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
@@ -83,7 +83,7 @@ public class BoardService {
         HttpEntity requests = new HttpEntity(httpHeaders);
 
         URI url = UriComponentsBuilder
-                .fromHttpUrl("http://127.0.0.1:9007/member/{homeid}")
+                .fromHttpUrl("http://127.0.0.1:9007/member/{userid}")
                 .build(urlVariables);
         ResponseEntity<UserResponseDto> userResponse =
                 restTemplate.exchange(url, HttpMethod.GET, requests, new ParameterizedTypeReference<UserResponseDto>() {
