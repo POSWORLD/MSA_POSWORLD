@@ -12,5 +12,5 @@ public interface PcommentUserRepository  extends JpaRepository<PcommentUserDto, 
 
     List<PcommentUserDto> getByPid(Integer pid);
 
-    Integer deleteByPidAndUserid(Integer pid, Integer userid);
+    Integer deleteByIdAndUserid(Integer id, Integer userid);
 }

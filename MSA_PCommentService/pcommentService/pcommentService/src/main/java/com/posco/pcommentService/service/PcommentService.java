@@ -30,7 +30,7 @@ public class PcommentService {
 
     private final RestTemplate restTemplate;
     @Autowired
-    PcommentRepository pcommentRepository;
+    PcommentUserRepository pcommentUserRepository;
 
     @Autowired
    public PcommentService(RestTemplate restTemplate){
@@ -44,15 +44,12 @@ public class PcommentService {
         });
     }
 
-    @Autowired
-    PcommentUserRepository pcommentUserRepository;
-
     public List<PcommentUserDto> getCommentByPid(PcommentDto pcommentDto){
         return pcommentUserRepository.getByPid(pcommentDto.getPid());
     }
 
     public Integer delteById(PcommentDto pcommentDto){
-        return pcommentUserRepository.deleteByPidAndUserid(pcommentDto.getId(), pcommentDto.getUserid());
+        return pcommentUserRepository.deleteByIdAndUserid(pcommentDto.getId(), pcommentDto.getUserid());
     }
 
     public PcommentUserDto insertPcomment(PcommentDto pcommentDto){
@@ -74,18 +71,15 @@ public class PcommentService {
         HttpEntity requests = new HttpEntity(httpHeaders);
 
         URI url = UriComponentsBuilder
-                .fromHttpUrl("http://127.0.0.1:9001/member/{userid}")
+                .fromHttpUrl("http://localhost:9007/member/{userid}")
                 .build(urlVariables);
         ResponseEntity<UserResponseDto> userResponse =
                 restTemplate.exchange(url, HttpMethod.GET, requests, new ParameterizedTypeReference<UserResponseDto>() {
                 });
         System.out.println("userResponse + "+userResponse);
         System.out.println("userResponse dto name + "+userResponse.getBody().getName());
-        pcommentUserDto.setName(userResponse.getClass().getName());
+        pcommentUserDto.setName(userResponse.getBody().getName());
         return pcommentUserRepository.save(pcommentUserDto);
     }
 
-    public PcommentDto updatePcomment(PcommentDto pcommentDto){
-        return pcommentRepository.save(pcommentDto);
-    }
 }
