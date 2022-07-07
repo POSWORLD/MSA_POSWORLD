@@ -1,5 +1,6 @@
 package com.example.homeService.controller;
 
+import com.example.homeService.aspect.TokenRequired;
 import com.example.homeService.model.HomeDto;
 import com.example.homeService.service.HomeServiceImpl;
 
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/home")
+@TokenRequired
 public class HomeController {
     @Autowired
     HomeServiceImpl homeService;
