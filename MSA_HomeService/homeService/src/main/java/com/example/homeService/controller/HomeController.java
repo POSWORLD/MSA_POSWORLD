@@ -27,8 +27,8 @@ public class HomeController {
         try{
             homeDto.setUserid(homeDto.getUserid());
             homeDto.setTitle("미니룸");
-            homeDto.setPhoto("좋은사진");
-            homeDto.setContent("좋은주말");
+            homeDto.setPhoto("/img/miniroom.png");
+            homeDto.setContent("㉠ㅣ억나ㄴ1 그 때 그 시절 ♡");
             homeDto.setBgm("좋은음악");
 
             result = homeService.insertHome(homeDto);
